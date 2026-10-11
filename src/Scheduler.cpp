@@ -2,7 +2,10 @@
 
 Scheduler::Scheduler()
 {
+
     this->timeStep = 1;
+    this->sensors.clear();
+
 }
 
 Scheduler::Scheduler(int timeStep)
@@ -28,10 +31,15 @@ Scheduler& Scheduler::operator=(const Scheduler& other)
     return *this;
 }
 
-void Scheduler::simulation(int duree)
-{
+void Scheduler::simulation(int duree) {
+
+    for (int i = 0; i < this->sensors.size(); i++) {
+        this->sensors[i]->update(0);
+
+    }
 }
 
 void Scheduler::addSensor(Sensor* s)
 {
+    this->sensors.push_back(s);
 }

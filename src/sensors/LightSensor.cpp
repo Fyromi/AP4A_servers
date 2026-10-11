@@ -1,6 +1,7 @@
 #include "sensors/LightSensor.h"
 
-double LightSensor::generateValue()
+/*double LightSensor::generateValue()
 {
     return 0;
 }
+*/

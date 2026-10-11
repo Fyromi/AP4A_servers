@@ -19,7 +19,17 @@ public:
 
     Data& operator=(const Data& other);
 
-    std::string toString();
+    const std::string toString() const;
+
+    int getTimeStamp() const;
+
+    int getId() const;
+
+    const std::string getType() const;
+
+    void setValeur(double valeur);
+
+    double getValeur() const;
 };
 
 #endif

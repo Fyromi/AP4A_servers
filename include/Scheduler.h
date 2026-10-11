@@ -6,7 +6,7 @@
 
 class Scheduler
 {
-private:
+protected:
     std::vector<Sensor*> sensors;
     int timeStep;
 

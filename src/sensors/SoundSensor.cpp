@@ -1,6 +1,7 @@
 #include "sensors/SoundSensor.h"
 
-double SoundSensor::generateValue()
+/*double SoundSensor::generateValue()
 {
     return 0;
 }
+*/

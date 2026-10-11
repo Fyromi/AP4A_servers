@@ -10,6 +10,7 @@ class Sensor
 protected:
     static int nextId;
     int id;
+    int measureTime;
     std::string type;
     Data data; // en gros c'est la derniere donnée produite par le capteur
     Server* server;
@@ -24,7 +25,9 @@ public:
 
     void update(int currentTime);
     void execute();
-    virtual double generateValue() = 0;
+    double generateValue() {
+        return 0;
+    }
 };
 
 #endif

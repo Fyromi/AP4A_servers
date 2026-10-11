@@ -1,6 +1,7 @@
 #include "sensors/TemperatureSensor.h"
 
-double TemperatureSensor::generateValue()
+/*double TemperatureSensor::generateValue()
 {
     return 0;
 }
+*/
