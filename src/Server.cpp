@@ -9,7 +9,7 @@
 Server::Server()
 {
     this->consoleEnabled = true;
-    this->logPath = "logs/"; //si t'as d'autre idée dit moi mais dans un dossier logs/ ca me semblais pas mal
+    this->logPath = "logs/";
 }
 
 Server::Server(bool consoleEnabled, std::string logPath)
@@ -58,7 +58,7 @@ void Server::fileWrite(const Data& d)
 
     if (!file)
     {
-        std::cerr << "Erreur : impossible d'ouvrir " << fileName << '\n';
+        std::cerr << "Error : impossible to open " << fileName << '\n';
         return;
     }
 

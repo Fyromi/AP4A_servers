@@ -25,7 +25,7 @@ Sensor::Sensor(std::string type, Server* server, int measureTime)
 
 Sensor::Sensor(const Sensor& other)
 {
-    this->id = nextId++; // d'ailleur ici faut faire gaffe, comme c'est un nouveau capteurs faut lui donné un nouvel id et donc repartir de 0, même si c'est un constructeur par copie
+    this->id = nextId++;
     this->type = other.type;
     this->measureTime = other.measureTime;
     this->data = other.data;
@@ -38,7 +38,7 @@ Sensor::~Sensor()
 
 Sensor& Sensor::operator=(const Sensor& other)
 {
-    // alors qu'ici on garde son propre ID
+
     this->type = other.type;
     this->data = other.data;
     this->measureTime = other.measureTime;
@@ -64,6 +64,6 @@ void Sensor::execute(int currentTime)
 
 std::ostream& operator<<(std::ostream& os, const Sensor& s)
 {
-    os << s.type << " #" << s.id << " (mesure toutes les " << s.measureTime << ")";
+    os << s.type << " #" << s.id << " (measure done every " << s.measureTime << ")";
     return os;
 }
