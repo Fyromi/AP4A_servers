@@ -1,6 +1,7 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
+#include <ostream>
 #include <string>
 #include "Data.h"
 #include "Server.h"
@@ -25,9 +26,9 @@ public:
 
     void update(int currentTime);
     void execute(int currentTime);
-    double generateValue() {
-        return 0;
-    }
+    virtual double generateValue() = 0;
+
+    friend std::ostream& operator<<(std::ostream& os, const Sensor& s);
 };
 
 #endif

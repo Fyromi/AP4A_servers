@@ -1,7 +1,13 @@
 #include "sensors/SoundSensor.h"
 
-/*double SoundSensor::generateValue()
+#include <cstdlib>
+
+SoundSensor::SoundSensor(Server* server, int measureTime)
+    : Sensor("Sound", server, measureTime)
 {
-    return 0;
 }
-*/
+
+double SoundSensor::generateValue()
+{
+    return 30 + std::rand() % 61; 
+}

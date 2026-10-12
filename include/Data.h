@@ -1,6 +1,7 @@
 #ifndef DATA_H
 #define DATA_H
 
+#include <ostream>
 #include <string>
 
 class Data
@@ -19,8 +20,6 @@ public:
 
     Data& operator=(const Data& other);
 
-    const std::string toString() const;
-
     int getTimeStamp() const;
 
     int getId() const;
@@ -30,6 +29,8 @@ public:
     void setValeur(double valeur);
 
     double getValeur() const;
+
+    friend std::ostream& operator<<(std::ostream& os, const Data& d);
 };
 
 #endif

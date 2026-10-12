@@ -57,7 +57,13 @@ void Sensor::update(int currentTime)
 
 void Sensor::execute(int currentTime)
 {
-    double valeur = (std::rand() % 6) + 1;
+    double valeur = this->generateValue();
     this->data = Data(this->id, this->type, valeur, currentTime);
     this->server->dataRecu(this->data);
+}
+
+std::ostream& operator<<(std::ostream& os, const Sensor& s)
+{
+    os << s.type << " #" << s.id << " (mesure toutes les " << s.measureTime << ")";
+    return os;
 }

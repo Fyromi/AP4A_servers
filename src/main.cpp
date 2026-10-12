@@ -1,6 +1,11 @@
 #include <ctime>
+#include <iostream>
 
 #include "Scheduler.h"
+#include "sensors/TemperatureSensor.h"
+#include "sensors/HumiditySensor.h"
+#include "sensors/SoundSensor.h"
+#include "sensors/LightSensor.h"
 
 int main()
 {
@@ -8,16 +13,22 @@ int main()
 
     Scheduler scheduleur = Scheduler();
 
-    Sensor sensore1 = Sensor("Son type", &serveur, 2);
-    Sensor sensore2 = Sensor("Son type 2", &serveur, 3);
+    TemperatureSensor temperature(&serveur, 2);
+    HumiditySensor humidity(&serveur, 3);
+    SoundSensor sound(&serveur, 1);
+    LightSensor light(&serveur, 5);
 
-    scheduleur.addSensor(&sensore1);
-    scheduleur.addSensor(&sensore2);
+    scheduleur.addSensor(&temperature);
+    scheduleur.addSensor(&humidity);
+    scheduleur.addSensor(&sound);
+    scheduleur.addSensor(&light);
 
+
+    std::cout << serveur << '\n';
+    std::cout << scheduleur << '\n';
 
     std::srand(std::time(nullptr));
 
     scheduleur.simulation(10);
-
 
 }

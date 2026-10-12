@@ -1,6 +1,7 @@
     #ifndef SERVER_H
 #define SERVER_H
 
+#include <ostream>
 #include <string>
 #include "Data.h"
 
@@ -21,6 +22,8 @@ public:
     void consoleWrite(const Data& d);
     void fileWrite(const Data& d);
     void dataRecu(const Data& d);
+
+    friend std::ostream& operator<<(std::ostream& os, const Server& s);
 };
 
 #endif

@@ -1,6 +1,7 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
+#include <ostream>
 #include <vector>
 #include "Sensor.h"
 
@@ -20,6 +21,8 @@ public:
 
     void simulation(int duree);
     void addSensor(Sensor* s);
+
+    friend std::ostream& operator<<(std::ostream& os, const Scheduler& s);
 };
 
 #endif

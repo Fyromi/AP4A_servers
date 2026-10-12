@@ -1,7 +1,13 @@
 #include "sensors/TemperatureSensor.h"
 
-/*double TemperatureSensor::generateValue()
+#include <cstdlib>
+
+TemperatureSensor::TemperatureSensor(Server* server, int measureTime)
+    : Sensor("Temperature", server, measureTime)
 {
-    return 0;
 }
-*/
+
+double TemperatureSensor::generateValue()
+{
+    return (std::rand() % 401) / 10.0; // entre 0.0 et 40.0 °C
+}

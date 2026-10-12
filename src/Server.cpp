@@ -38,8 +38,7 @@ Server& Server::operator=(const Server& other)
 
 void Server::consoleWrite(const Data& d)
 {
-
-    printf(d.toString().c_str());
+    std::cout << d << '\n';
 }
 
 void Server::fileWrite(const Data& d)
@@ -67,16 +66,18 @@ void Server::fileWrite(const Data& d)
         file<<"time; sensor; type; value\n";
     }
 
-    file << d.getTimeStamp() << ';'
-         << d.getId() << ';'
-         << d.getType() << ';'
-         << d.getValeur()
-         << '\n';
-
+    file << d << '\n';
 }
 
 void Server::dataRecu(const Data& d)
 {
     consoleWrite(d);
     fileWrite(d);
+}
+
+std::ostream& operator<<(std::ostream& os, const Server& s)
+{
+    os << "Server (console : " << (s.consoleEnabled ? "on" : "off")
+       << ", logs : " << s.logPath << ")";
+    return os;
 }

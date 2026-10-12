@@ -1,7 +1,13 @@
 #include "sensors/LightSensor.h"
 
-/*double LightSensor::generateValue()
+#include <cstdlib>
+
+LightSensor::LightSensor(Server* server, int measureTime)
+    : Sensor("Light", server, measureTime)
 {
-    return 0;
 }
-*/
+
+double LightSensor::generateValue()
+{
+    return std::rand() % 2; // Soit 0 soit 1
+}

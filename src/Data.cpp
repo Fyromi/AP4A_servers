@@ -53,14 +53,8 @@ double Data::getValeur() const {
     return this->valeur;
 }
 
-const std::string Data::toString() const {
-    char chain[256];
-    const char *p = this->type.c_str();
-
-    sprintf(chain, "the id is %d \n "
-            "the type is %s \n"
-            "this is the value %f \n"
-            "this is the time stamp %d \n --------------------------------- \n"
-            , this->id, p, this->valeur, this->timeStamp);
-    return chain;
+std::ostream& operator<<(std::ostream& os, const Data& d)
+{
+    os << d.timeStamp << ';' << d.id << ';' << d.type << ';' << d.valeur;
+    return os;
 }

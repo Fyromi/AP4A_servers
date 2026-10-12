@@ -44,3 +44,13 @@ void Scheduler::addSensor(Sensor* s)
 {
     this->sensors.push_back(s);
 }
+
+std::ostream& operator<<(std::ostream& os, const Scheduler& s)
+{
+    os << "Scheduler (pas de temps : " << s.timeStep << ", "
+       << s.sensors.size() << " capteurs)\n";
+    for (size_t i = 0; i < s.sensors.size(); i++) {
+        os << "  - " << *s.sensors[i] << '\n';
+    }
+    return os;
+}
