@@ -64,6 +64,6 @@ void Sensor::execute(int currentTime)
 
 std::ostream& operator<<(std::ostream& os, const Sensor& s)
 {
-    os << s.type << " #" << s.id << " (measure done every " << s.measureTime << ")";
+    os << s.type << " #" << s.id << " (measure done every " << s.measureTime << " tick(s))";
     return os;
 }

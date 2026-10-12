@@ -49,10 +49,8 @@ void Server::fileWrite(const Data& d)
     bool writeHeader = true;
 
     if (std::filesystem::exists(fileName)) {
-
         writeHeader = (std::filesystem::file_size(fileName)==0);
     }
-
 
     std::ofstream file(fileName, std::ios::app);
 

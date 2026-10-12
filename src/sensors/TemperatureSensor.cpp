@@ -9,5 +9,5 @@ TemperatureSensor::TemperatureSensor(Server* server, int measureTime)
 
 double TemperatureSensor::generateValue()
 {
-    return (std::rand() % 401) / 10.0; // entre 0.0 et 40.0 °C
+    return (std::rand() % 401) / 10.0;
 }

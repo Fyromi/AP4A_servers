@@ -9,5 +9,5 @@ LightSensor::LightSensor(Server* server, int measureTime)
 
 double LightSensor::generateValue()
 {
-    return std::rand() % 2; // Soit 0 soit 1
+    return std::rand() % 2;
 }
