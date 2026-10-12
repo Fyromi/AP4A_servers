@@ -50,7 +50,7 @@ std::ostream& operator<<(std::ostream& os, const Scheduler& s)
     os << "Scheduler (Time Step : " << s.timeStep << ", "
        << s.sensors.size() << " Sensors)\n";
     for (size_t i = 0; i < s.sensors.size(); i++) {
-        os << "  - " << *s.sensors[i] << '\n';
+        os << "  - " << *s.sensors[i] << std::endl;
     }
     return os;
 }

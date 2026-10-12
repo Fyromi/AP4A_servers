@@ -38,7 +38,24 @@ Server& Server::operator=(const Server& other)
 
 void Server::consoleWrite(const Data& d)
 {
-    std::cout << d << '\n';
+    std::string unit;
+    if (d.getType() == "Humidity") {
+        unit = "%";
+    }
+    else if (d.getType() == "Temperature") {
+        unit = "C";
+    }
+    else if (d.getType() == "Sound") {
+        unit = "dB";
+    }
+
+
+    std::cout << std::endl<<"Time stamp : "<< d.getTimeStamp()
+              << " | Id : "<< d.getId()
+              << " | Type : " << d.getType()
+              << " | Value : " << d.getValeur()<< unit <<std::endl;
+
+
 }
 
 void Server::fileWrite(const Data& d)
@@ -56,15 +73,15 @@ void Server::fileWrite(const Data& d)
 
     if (!file)
     {
-        std::cerr << "Error : impossible to open " << fileName << '\n';
+        std::cerr << "Error : impossible to open " << fileName << std::endl;
         return;
     }
 
     if (writeHeader) {
-        file<<"time; sensor; type; value\n";
+        file<<"time; sensor; type; value \n";
     }
 
-    file << d << '\n';
+    file << d << std::endl;
 }
 
 void Server::dataRecu(const Data& d)

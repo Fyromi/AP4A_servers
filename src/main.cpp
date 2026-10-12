@@ -24,8 +24,8 @@ int main()
     scheduleur.addSensor(&light);
 
 
-    std::cout << serveur << '\n';
-    std::cout << scheduleur << '\n';
+    std::cout << serveur << std::endl;
+    std::cout << scheduleur << std::endl;
 
     std::srand(std::time(nullptr));
 
