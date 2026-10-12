@@ -31,11 +31,12 @@ Scheduler& Scheduler::operator=(const Scheduler& other)
     return *this;
 }
 
-void Scheduler::simulation(int duree) {
-
-    for (int i = 0; i < this->sensors.size(); i++) {
-        this->sensors[i]->update(0);
-
+void Scheduler::simulation(int duree)
+{
+    for (int t = 0; t < duree; t += this->timeStep) {
+        for (size_t i = 0; i < this->sensors.size(); i++) {
+            this->sensors[i]->update(t);
+        }
     }
 }
 

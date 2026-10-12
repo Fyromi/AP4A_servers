@@ -1,5 +1,7 @@
 #include "Sensor.h"
 
+#include <cstdlib>
+
 int Sensor::nextId = 0;
 
 Sensor::Sensor()
@@ -11,10 +13,12 @@ Sensor::Sensor()
     this->server = nullptr;
 }
 
-Sensor::Sensor(std::string type, Server* server)
+Sensor::Sensor(std::string type, Server* server, int measureTime)
 {
     this->id = nextId++;
     this->type = type;
+    this->measureTime = measureTime;
+    this->data = Data(this->id, this->type, 0.0, 0);
     this->server = server;
 }
 
@@ -45,17 +49,15 @@ Sensor& Sensor::operator=(const Sensor& other)
 
 void Sensor::update(int currentTime)
 {
-    if (currentTime - this->data.getTimeStamp() <= this->measureTime) {
-        this->execute();
+    if (currentTime - this->data.getTimeStamp() >= this->measureTime) {
+        this->execute(currentTime);
     }
 
 }
 
-void Sensor::execute()
+void Sensor::execute(int currentTime)
 {
-
-    this->data.setValeur((std::rand() % 6) + 1);
+    double valeur = (std::rand() % 6) + 1;
+    this->data = Data(this->id, this->type, valeur, currentTime);
     this->server->dataRecu(this->data);
-
-
 }

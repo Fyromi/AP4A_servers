@@ -17,14 +17,14 @@ protected:
 
 public:
     Sensor();
-    Sensor(std::string type, Server* server);
+    Sensor(std::string type, Server* server, int measureTime);
     Sensor(const Sensor& other);
     virtual ~Sensor();
 
     Sensor& operator=(const Sensor& other);
 
     void update(int currentTime);
-    void execute();
+    void execute(int currentTime);
     double generateValue() {
         return 0;
     }
